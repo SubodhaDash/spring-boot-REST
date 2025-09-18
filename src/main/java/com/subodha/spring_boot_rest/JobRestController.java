@@ -42,4 +42,16 @@ public class JobRestController {
         System.out.println("Post is deleted");
         return "Deleted";
     }
+
+    @GetMapping("load")
+    public String loadData(){
+
+        service.loadData();
+        return "Success";
+    }
+
+    @GetMapping("jobPosts/{keyword}")
+    public List<JobPost> getByProfile(@PathVariable("keyword") String postProfile){
+        return service.getByProfile(postProfile);
+    }
 }
